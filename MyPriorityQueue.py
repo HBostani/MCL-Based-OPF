@@ -9,7 +9,7 @@ Reference: H. Bostani, M. Sheikhan, “Modification of Optimum-Path Forest using
 
 Coded by: Hamid Bostani (st_h_bostani@azad.ac.ir), 2020.
 
-Purpose: Defining a priority queue used in training and classification phases of OPF 
+Purpose: Defining a priority queue used in training phase of OPF 
 
 Code compatible: Python: 3.*
 """
