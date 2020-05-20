@@ -12,3 +12,5 @@ Coded by: Hamid Bostani (st_h_bostani@azad.ac.ir), 2020.
 Hint: Use "OPFs_comparison.py" to start working with this source code.
 
 Code compatible: Python: 3.*
+
+This code is available for non-commercial purposes. Would appreciate an acknowledgment if you use it in your work.
