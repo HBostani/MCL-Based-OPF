@@ -17,19 +17,27 @@ Code compatible: Python: 3.*
 
 import numpy as np
 import opf_finding_prototypes_mst as pr_mst
-import opf_train as tr
+import opf_finding_prototypes_mcl as pr_mcl
 import opf_classify as cf
+import opf_learning as le
 
 Dataset=np.genfromtxt('magic04Normalized.csv',delimiter=',')
 LabelIndex=11
-Z1=Dataset[0:500]
-Z2=Dataset[500:1000]
+Z1=Dataset[0:1000]
+Z2=Dataset[2000:2500]
+Z3=Dataset[1000:3000]
+labels=list(set([i[10] for i in Z1]))
+iteration_count=5
 
-Prototypes=pr_mst.finding_prototypes_mst(Z1)
-Model=tr.train(Z1,Prototypes)
-Classification=cf.classify(Z1,Z2,Model)
-cmp_classification=[Z2[i,10] == Classification[i,3] for i,e in enumerate(Z2)]
-accuracy_classification=(cmp_classification.count(True)/np.shape(Z2)[0])*100
-print("Accuracy of classification: ",accuracy_classification)
+prototypes_identification_method="MST"
+if prototypes_identification_method == "MST":
+    Prototypes=pr_mst.finding_prototypes_mst(Z1)
+else:
+    Prototypes=pr_mcl.finding_prototypes_mcl(Z1)
+Model_best=le.learning(Z1,Z2,Prototypes,iteration_count,labels)
+Classification=cf.classify(Z1,Z3,Model_best)            
+cmp_classification=[Z3[i,10] == Classification[i,3] for i,e in enumerate(Z3)]
+accuracy_classification=(cmp_classification.count(True)/np.shape(Z3)[0])*100
+print("The Accuracy of classification: ",accuracy_classification)
 
 
