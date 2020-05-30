@@ -10,7 +10,7 @@ Reference: H. Bostani, M. Sheikhan, “Modification of Optimum-Path Forest using
 
 Coded by: Hamid Bostani (st_h_bostani@azad.ac.ir), 2020.
 
-Purpose: The main file of comparing standard OPF and the proposed MCL-based OPF
+Purpose: The main file of comparing standard OPF and the proposed MCL-based OPF.
 
 Code compatible: Python: 3.*
 """
